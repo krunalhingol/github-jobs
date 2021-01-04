@@ -1,0 +1,6 @@
+.job-board {
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  flex-flow: row wrap;
+  display: flex;
+}

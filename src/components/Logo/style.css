@@ -1,0 +1,8 @@
+.logo {
+  top: -2.5rem;
+  position: absolute;
+}
+
+.logo img {
+  border-radius: 7px;
+}
