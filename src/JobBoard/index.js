@@ -13,14 +13,15 @@ const JobBoard = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`${appConfig.baseUrl}?page=${page}`)
+    fetch(`${appConfig.cors}${appConfig.baseUrl}?page=${page}`)
       .then((response) => response.json())
       .then((positions) => {
         setJobList((j) => {
           setLoading(false);
           return [...j, ...positions];
         });
-      });
+      })
+      .catch(() => setLoading(false));
   }, [page]);
 
   if ((!jobList || jobList.length === 0) && isLoading) {
