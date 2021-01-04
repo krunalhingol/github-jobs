@@ -1,0 +1,16 @@
+.logo {
+  top: -2.5rem;
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 1px 0 rgba(9,30,66,.25);
+  img {
+    width: 100%;
+  } 
+}

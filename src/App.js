@@ -1,13 +1,18 @@
 import Header from "./components/Header";
-import "./App.css";
 import JobBoard from "./JobBoard";
+import "./App.scss";
+import { ThemeContext, themes } from "./ThemeContext";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(themes.light);
   return (
-    <div className="github-jobs bg-color-light-grey">
-      <Header />
-      <JobBoard />
-    </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <div className={`github-jobs ${theme}`}>
+        <Header />
+        <JobBoard />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

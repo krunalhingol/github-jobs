@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
 import appConfig from "../config/appConfig";
-import "./style.css";
+import "./style.scss";
 
 const JobBoard = () => {
   const [jobList, setJobList] = useState([]);
