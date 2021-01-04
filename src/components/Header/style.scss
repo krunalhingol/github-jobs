@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.header {
+  background-image: url("../../assets/desktop/bg-pattern-header.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4rem 9rem;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .app-logo {
+    background-image: url("../../assets/desktop/logo.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40px;
+    width: 9rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .header {
+    background-image: url("../../assets/tablet/bg-pattern-header.svg");
+    padding: 4rem 3rem;
+  }
+}
+
+@media (max-width: 766px) {
+  .header {
+    background-image: url("../../assets/mobile/bg-pattern-header.svg");
+    padding: 4rem 1rem;
+  }
+}

@@ -1,0 +1,9 @@
+@import "./styles/variables";
+.github-jobs {
+  &.light-mode {
+    background-color: $light-grey;
+  }
+  &.dark-mode {
+    background-color: $midnight;
+  }
+}
