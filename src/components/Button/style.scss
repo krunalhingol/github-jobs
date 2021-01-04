@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+.btn {
+  height: 48px;
+  padding: 1rem 2rem;
+  border: 1px solid $violet;
+  border-radius: 5px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: $white;
+  background-color: $violet;
+  cursor: pointer;
+  &:hover {
+    border-color: $light-violet;
+    background-color: $light-violet;
+  }
+  &:disabled {
+    border-color: $light-violet;
+    background-color: $light-violet;
+    cursor: not-allowed;
+  }
+}

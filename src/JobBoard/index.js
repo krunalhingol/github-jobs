@@ -1,48 +1,50 @@
 import { useEffect, useState } from "react";
-import JobCard from "../components/JobCard";
+import Button from "../components/Button";
 import appConfig from "../config/appConfig";
+import JobList from "./JobList";
 import "./style.scss";
 
 const JobBoard = () => {
   const [jobList, setJobList] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const loadMorePages = () => setPage((p) => p + 1);
 
   useEffect(() => {
-    fetch(`${appConfig.cors}${appConfig.baseUrl}`)
+    setLoading(true);
+    fetch(`${appConfig.baseUrl}?page=${page}`)
       .then((response) => response.json())
       .then((positions) => {
-        setJobList(positions);
+        setJobList((j) => {
+          setLoading(false);
+          return [...j, ...positions];
+        });
       });
-  }, []);
+  }, [page]);
+
+  if ((!jobList || jobList.length === 0) && isLoading) {
+    return (
+      <div className="container job-board">
+        <div className="job-list">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!jobList || jobList.length === 0) {
+    return (
+      <div className="container job-board">
+        <div className="job-list">No job posting yet.</div>
+      </div>
+    );
+  }
 
   return (
     <div className="container job-board">
-      {jobList.map((jobItem) => {
-        const {
-          id,
-          type,
-          url,
-          created_at,
-          company,
-          location,
-          title,
-          company_logo,
-        } = jobItem;
-
-        return (
-          <JobCard
-            key={id}
-            id={id}
-            type={type}
-            url={url}
-            createdAt={created_at}
-            company={company}
-            location={location}
-            title={title}
-            logo={company_logo}
-            
-          />
-        );
-      })}
+      <JobList list={jobList} />
+      <Button onClick={loadMorePages} isLoading={isLoading}>
+        Load More
+      </Button>
     </div>
   );
 };

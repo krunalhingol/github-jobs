@@ -1,7 +1,12 @@
 .job-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-top: 7rem;
   padding-bottom: 3rem;
-  flex-flow: row wrap;
-  display: flex;
-  justify-content: center;
+  .job-list {
+    flex-flow: row wrap;
+    display: flex;
+    justify-content: center;
+  }
 }
